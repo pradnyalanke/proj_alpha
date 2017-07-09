@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 13, 2017 8:25:28 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="demo.pojos.Vendor" table="VENDOR">
+        <id name="vendorId" type="int">
+            <column name="VENDORID" />
+            <generator class="increment" />
+        </id>
+        <property name="vFname" type="java.lang.String" access="field">
+            <column name="VFNAME" />
+        </property>
+        <property name="vLname" type="java.lang.String" access="field">
+            <column name="VLNAME" />
+        </property>
+        <property name="vAddress" type="java.lang.String" access="field">
+            <column name="VADDRESS" />
+        </property>
+        <property name="vEmail" type="java.lang.String" access="field">
+            <column name="VEMAIL" />
+        </property>
+        <property name="vMobNo" type="java.lang.String" access="field">
+            <column name="VMOBNO" />
+        </property>
+        <property name="vUserName" type="java.lang.String" access="field">
+            <column name="VUSERNAME" />
+        </property>
+        <property name="vPassword" type="java.lang.String" access="field">
+            <column name="VPASSWORD" />
+        </property>
+        <list name="menuList" inverse="false" table="MENU" lazy="true" cascade="all">
+            <key>
+                <column name="VENDORID" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="demo.pojos.Menu" />
+        </list>
+    </class>
+</hibernate-mapping>
